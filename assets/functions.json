@@ -1,0 +1,9 @@
+{
+  "exports": [
+    {
+      "id": "http.commerce.catalog.storefront.tax.estimateTaxes.before",
+      "virtualPath": "./dist\\commerce.catalog.storefront.tax.manifest.all.js",
+      "actionId": "http.commerce.catalog.storefront.tax.estimateTaxes.before"
+    }
+  ]
+}
