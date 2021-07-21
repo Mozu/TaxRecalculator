@@ -36,8 +36,9 @@
           var itemTaxRate = parseFloat(lineItem.data.itemTaxRate);
           var itemTotal = parseFloat(lineItem.lineItemPrice);
 
-          itemTaxContext.tax = calculateTax(itemTotal, itemTaxRate);
-          orderTaxContext.orderTax += itemTaxContext.tax;
+          var itemTax = calculateTax(itemTotal, itemTaxRate);
+          itemTaxContext.tax = smartRound(itemTax, 2);
+          orderTaxContext.orderTax += itemTax;
         }
 
         // calculate shipping tax
@@ -45,8 +46,9 @@
           var shippingTaxRate = parseFloat(lineItem.data.shippingTaxRate);
           var shippingTotal = parseFloat(lineItem.shippingAmount);
 
-          itemTaxContext.shippingTax = calculateTax(shippingTotal, shippingTaxRate);
-          orderTaxContext.shippingTax += itemTaxContext.shippingTax;
+          var shippingTax = calculateTax(shippingTotal, shippingTaxRate);
+          itemTaxContext.shippingTax = smartRound(shippingTax, 2);
+          orderTaxContext.shippingTax += shippingTax;
         }
         itemTaxContext.taxData = null;
         orderTaxContext.itemTaxContexts.push(itemTaxContext);
